@@ -3,24 +3,34 @@ package com.company;
 import java.util.Scanner;
 
 public class GuessingGameAI {
-    public static void main(String[] args) {
-        System.out.print("Wanna play a number guessing game? Neat!!! You pick a number from 1-100.");
+    public static void main(String[] args)
+    {
         int min = 1;
         int max = 100;
-        int computerGuess = max/2;
+        System.out.println("Wanna play a number guessing game? Neat!!! You pick a number from 1-"+max+".");
+        int computerGuess = max / 2;
         Scanner input = new Scanner(System.in);
         int userNumber = input.nextInt();
-        System.out.print(" Now, is your secret number "+computerGuess+"? That's totally right, isn't it??");
-        if (computerGuess != userNumber)
+        System.out.println(" Now, is your secret number " + computerGuess + "? That's right, isn't it??");
+        while (computerGuess != userNumber)
         {
-            if (input.equals("higher")){
+            String highLowCorrect = input.nextLine();
+            if (input.equals("higher"))
             {
-                System.out.print("No??? I need to go higher then, huh? Easy! ");
+                System.out.println("No??? I need to go "+highLowCorrect+" then, huh? Easy! ");
                 min = computerGuess;
                 computerGuess = (min + max) / 2;
             }
-            if (input.equals("higher")){
-
+            if (input.equals("lower"))
+            {
+                System.out.println("No??? I need to go "+highLowCorrect+" then, huh? Easy!" );
+                max = computerGuess;
+                computerGuess = (min + max) / 2;
+            }
+            if (input.equals("correct"))
+            {
+                System.out.println("Yes!!! I got it on my first try, too!");
             }
         }
+    }
 }
