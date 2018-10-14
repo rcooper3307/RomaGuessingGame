@@ -15,22 +15,26 @@ public class GuessingGameAI {
         while (computerGuess != userNumber)
         {
             String highLowCorrect = input.nextLine();
-            if (input.equals("higher"))
+            if (highLowCorrect.equals("higher"))
             {
                 System.out.println("No??? I need to go "+highLowCorrect+" then, huh? Easy! ");
                 min = computerGuess;
                 computerGuess = (min + max) / 2;
+                System.out.println("Is your number "+computerGuess+"?");
             }
-            if (input.equals("lower"))
+            if (highLowCorrect.equals("lower"))
             {
                 System.out.println("No??? I need to go "+highLowCorrect+" then, huh? Easy!" );
                 max = computerGuess;
                 computerGuess = (min + max) / 2;
+                System.out.println("Is your number "+computerGuess+"?");
             }
-            if (input.equals("correct"))
-            {
-                System.out.println("Yes!!! I got it on my first try, too!");
-            }
+        }
+        System.out.println("I feel like that was close. Is that actually correct?");
+        String correct = input.nextLine();
+        if (correct.equals("correct"))
+        {
+            System.out.println("Yes!!! I got it on my first try, too!");
         }
     }
 }
